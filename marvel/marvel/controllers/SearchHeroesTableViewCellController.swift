@@ -26,17 +26,7 @@ class SearchHeroesTableViewCellController: UITableViewCell {
     func renderHero(with hero: HeroModel){
         if(labelNameHero !== nil && imageHero !== nil){
             labelNameHero.text = hero.name
-
-            do {
-                if let url = URL(string: "\(hero.thumbnail.path).\(hero.thumbnail.extension)"){
-                    let data = try Data(contentsOf: url)
-                    imageHero.image = UIImage(data: data)
-                } else {
-                    print("URL de imagem inválida.")
-                }
-            } catch {
-                print(error)
-            }
+            imageHero.image = ControllersUtils().processImage(hero: hero)
         }
     }
 }

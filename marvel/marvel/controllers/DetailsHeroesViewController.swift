@@ -9,12 +9,18 @@ import UIKit
 
 class DetailsHeroesViewController: UIViewController {
 
+    @IBOutlet weak var nameDescriptionDetail: UITextView!
+    @IBOutlet weak var nameHeroDetail: UILabel!
+    @IBOutlet weak var imageHeroDetail: UIImageView!
     var hero: HeroModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(hero.name)
-        // Do any additional setup after loading the view.
+        nameDescriptionDetail.isEditable = false
+        
+        nameHeroDetail.text = hero.name
+        nameDescriptionDetail.text = hero.description == "" ? "This hero don't have a description" : hero.description
+        imageHeroDetail.image = ControllersUtils().processImage(hero: hero)
     }
     
 

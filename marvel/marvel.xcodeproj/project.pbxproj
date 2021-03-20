@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3339A6E62606952100FFABA9 /* ControllersUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339A6E52606952100FFABA9 /* ControllersUtils.swift */; };
 		33DB28EB260389C800ED93FD /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB28EA260389C800ED93FD /* ApiModel.swift */; };
 		33E0AFC62602B32F0042C4B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0AFC52602B32F0042C4B7 /* AppDelegate.swift */; };
 		33E0AFC82602B32F0042C4B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0AFC72602B32F0042C4B7 /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3339A6E52606952100FFABA9 /* ControllersUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersUtils.swift; sourceTree = "<group>"; };
 		33DB28EA260389C800ED93FD /* ApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModel.swift; sourceTree = "<group>"; };
 		33E0AFC22602B32F0042C4B7 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E0AFC52602B32F0042C4B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				33F3048F2603BB9D00740570 /* ApiUrlUtils.swift */,
+				3339A6E52606952100FFABA9 /* ControllersUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				33E0AFC62602B32F0042C4B7 /* AppDelegate.swift in Sources */,
 				33F304982603BBF300740570 /* API_KEYS.swift in Sources */,
 				33E0AFC82602B32F0042C4B7 /* SceneDelegate.swift in Sources */,
+				3339A6E62606952100FFABA9 /* ControllersUtils.swift in Sources */,
 				33F304A02604405A00740570 /* PARAMETERS.swift in Sources */,
 				33F304A62604485700740570 /* ApiUrlHandler.swift in Sources */,
 				33DB28EB260389C800ED93FD /* ApiModel.swift in Sources */,
