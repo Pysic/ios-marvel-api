@@ -53,6 +53,11 @@
                                 <constraint firstItem="M4n-jy-ZxB" firstAttribute="leading" secondItem="STy-pz-iWR" secondAttribute="leading" constant="8" id="zeI-J9-620"/>
                             </constraints>
                         </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="AWx-Lh-BTW">
+                            <rect key="frame" x="0.0" y="463.5" width="414" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="heroCell" rowHeight="220.5" id="FhS-Gj-vyp" customClass="SearchHeroesTableViewCellController" customModule="marvel" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="215" width="414" height="220.5"/>

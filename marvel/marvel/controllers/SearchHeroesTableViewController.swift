@@ -17,6 +17,7 @@ class SearchHeroesTableViewController: UITableViewController {
     private var heroes: [HeroModel] = []
     private var isLoadingHeroes: Bool = false
     private var totalHeroes: Int = 0
+    private var indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.view.endEditing(true)
@@ -34,6 +35,7 @@ class SearchHeroesTableViewController: UITableViewController {
             self.totalHeroes = responseTotal
             
             DispatchQueue.main.async {
+                ControllersUtils().loaderElement(indicator: self.indicator, view: self.view, show: false)
                 self.tableView.reloadData()
             }
             self.isLoadingHeroes = false
@@ -41,6 +43,8 @@ class SearchHeroesTableViewController: UITableViewController {
     }
     
     private func cleanHeroes(){
+        ControllersUtils().loaderElement(indicator: self.indicator, view: self.view, show: true)
+        
         self.heroes = []
         ApiUrlUtils().resetPageCount()
         
@@ -70,6 +74,7 @@ class SearchHeroesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ControllersUtils().loaderElement(indicator: self.indicator, view: self.view, show: true)
         callRequestResolver()
     }
 

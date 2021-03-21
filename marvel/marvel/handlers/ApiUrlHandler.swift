@@ -35,7 +35,6 @@ class ApiUrlHandler {
     }
     
     public func getPath() -> String{
-        print("\(urlBase.rawValue)ts=\(timestamp)&apikey=\(publicKey)&hash=\(hexMd5)&limit\(limit)&offset\(pageNumber)\(params.rawValue)\(heroName)")
-        return "\(urlBase.rawValue)ts=\(timestamp)&apikey=\(publicKey)&hash=\(hexMd5)&limit=\(limit)&offset=\(pageNumber)\(params.rawValue)\(heroName)"
+        "\(urlBase.rawValue)ts=\(timestamp)&apikey=\(publicKey)&hash=\(hexMd5)&limit=\(limit)&offset=\(pageNumber)\(params.rawValue)\(heroName)"
     }
 }

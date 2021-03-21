@@ -23,4 +23,19 @@ class ControllersUtils {
         }
         return image
     }
+    
+    public func loaderElement(indicator: UIActivityIndicatorView, view: UIView, show start: Bool){
+        
+        indicator.style = UIActivityIndicatorView.Style.medium
+        indicator.center = view.center
+        view.addSubview(indicator)
+        
+        if(start){
+            indicator.startAnimating()
+        } else {
+            indicator.stopAnimating()
+            indicator.hidesWhenStopped = true
+        }
+        
+    }
 }
