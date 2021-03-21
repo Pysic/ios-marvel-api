@@ -92,7 +92,7 @@ class SearchHeroesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if(indexPath.row == heroes.count - 4 && !self.isLoadingHeroes && heroes.count != self.totalHeroes) {
+        if(indexPath.row == heroes.count - 5 && !self.isLoadingHeroes && heroes.count != self.totalHeroes) {
             callRequestResolver()
         }
     }

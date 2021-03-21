@@ -12,7 +12,7 @@ import typealias CommonCrypto.CC_LONG
 
 struct ApiUrlUtils {
     static private var pageCount: Int = 0
-    private let limit: Int = 10
+    private let limit: Int = 15
     
     public func getLimit() -> Int {return limit}
     

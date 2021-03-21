@@ -26,5 +26,9 @@ struct HeroModel : Codable{
 struct ThumbnailModel : Codable{
     var path: String
     var `extension`: String
+    
+    var url: String {
+        "\(path).\(`extension`)"
+    }
 }
 

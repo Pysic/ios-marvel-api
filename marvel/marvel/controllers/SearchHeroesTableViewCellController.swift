@@ -26,7 +26,7 @@ class SearchHeroesTableViewCellController: UITableViewCell {
     func renderHero(with hero: HeroModel){
         if(labelNameHero !== nil && imageHero !== nil){
             labelNameHero.text = hero.name
-            imageHero.image = ControllersUtils().processImage(hero: hero)
+            imageHero.kf.setImage(with: URL(string: hero.thumbnail.url))
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailsHeroesViewController: UIViewController {
 
@@ -16,11 +17,10 @@ class DetailsHeroesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameDescriptionDetail.isEditable = false
         
         nameHeroDetail.text = hero.name
         nameDescriptionDetail.text = hero.description == "" ? "\(hero.name) don't have a description." : hero.description
-        imageHeroDetail.image = ControllersUtils().processImage(hero: hero)
+        imageHeroDetail.kf.setImage(with: URL(string: self.hero.thumbnail.url))
     }
     
 
