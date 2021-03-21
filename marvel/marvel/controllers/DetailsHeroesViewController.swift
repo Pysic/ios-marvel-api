@@ -19,7 +19,7 @@ class DetailsHeroesViewController: UIViewController {
         nameDescriptionDetail.isEditable = false
         
         nameHeroDetail.text = hero.name
-        nameDescriptionDetail.text = hero.description == "" ? "This hero don't have a description" : hero.description
+        nameDescriptionDetail.text = hero.description == "" ? "\(hero.name) don't have a description." : hero.description
         imageHeroDetail.image = ControllersUtils().processImage(hero: hero)
     }
     

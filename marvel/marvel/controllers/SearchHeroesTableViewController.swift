@@ -15,46 +15,62 @@ class SearchHeroesTableViewController: UITableViewController {
     }
     
     private var heroes: [HeroModel] = []
+    private var isLoadingHeroes: Bool = false
+    private var totalHeroes: Int = 0
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.view.endEditing(true)
+        
         let details = segue.destination as! DetailsHeroesViewController
         let hero = heroes[tableView.indexPathForSelectedRow?.row ?? 0]
         details.hero = hero
     }
     
-    private func waitUserStopsTypeToRequest(delay: Double){
-        NSObject.cancelPreviousPerformRequests(
-                withTarget: self,
-                selector: #selector(SearchHeroesTableViewController.callRequestAfterDelay),
-                object: searchTextField)
-        self.perform(
-            #selector(SearchHeroesTableViewController.callRequestAfterDelay),
-            with: searchTextField,
-            afterDelay: delay)
-    }
-    
-    @objc private func callRequestAfterDelay(){
-        guard let textValue = searchTextField.text else {return}
-        getHeroes(httpRequest: HttpRequestApiService(withHeroName: textValue))
-    }
-    
     private func getHeroes(httpRequest: HttpRequestApiService){
-        httpRequest.getHeroes(completion: { (response) in
-            self.heroes = response
+        self.isLoadingHeroes = true
+        httpRequest.getHeroes(completion: { (responseHeroes, responseTotal) in
+            
+            self.heroes += responseHeroes
+            self.totalHeroes = responseTotal
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+            self.isLoadingHeroes = false
         })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getHeroes(httpRequest: HttpRequestApiService())
+    private func cleanHeroes(){
+        self.heroes = []
+        ApiUrlUtils().resetPageCount()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func waitUserStopsTypeToRequest(delay: Double){
+        cleanHeroes()
+        
+        NSObject.cancelPreviousPerformRequests(
+                withTarget: self,
+                selector: #selector(SearchHeroesTableViewController.callRequestResolver),
+                object: searchTextField)
+        self.perform(
+            #selector(SearchHeroesTableViewController.callRequestResolver),
+            with: searchTextField,
+            afterDelay: delay)
+    }
+    
+    @objc private func callRequestResolver(){
+        guard let textValue = searchTextField.text else {return}
+        let request = textValue == "" ? HttpRequestApiService() : HttpRequestApiService(withHeroName: textValue)
+        getHeroes(httpRequest: request)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        callRequestResolver()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,6 +84,12 @@ class SearchHeroesTableViewController: UITableViewController {
         
         cell.renderHero(with: hero)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if(indexPath.row == heroes.count - 4 && !self.isLoadingHeroes && heroes.count != self.totalHeroes) {
+            callRequestResolver()
+        }
     }
     
     /*

@@ -12,6 +12,7 @@ struct ApiModel : Codable {
 }
 
 struct DataModel : Codable {
+    var total: Int
     var results: [HeroModel]
 }
 

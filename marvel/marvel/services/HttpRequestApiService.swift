@@ -19,7 +19,7 @@ class HttpRequestApiService{
         self.url = ApiUrlHandler(heroName: name).getPath()
     }
     
-    func getHeroes(completion: @escaping ([HeroModel]) -> Void){
+    func getHeroes(completion: @escaping ([HeroModel], Int) -> Void){
         let urlPath = self.url
         guard let url = URL(string: urlPath) else {return}
         let dataTask = HttpRequestApiService.session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -29,7 +29,7 @@ class HttpRequestApiService{
                     guard let data = data else {return}
                     do {
                         let json = try JSONDecoder().decode(ApiModel.self, from: data)
-                        completion(json.data.results)
+                        completion(json.data.results, json.data.total)
                     } catch {
                         print("error")
                     }
