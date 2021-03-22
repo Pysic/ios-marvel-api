@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		33E42CCD2605664B000FDC95 /* SearchHeroesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E42CCC2605664B000FDC95 /* SearchHeroesTableViewController.swift */; };
 		33E42CEA2605A17E000FDC95 /* SearchHeroesTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E42CE92605A17E000FDC95 /* SearchHeroesTableViewCellController.swift */; };
 		33E42CFA2605CEE6000FDC95 /* DetailsHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E42CF92605CEE6000FDC95 /* DetailsHeroesViewController.swift */; };
+		33E556FD26084C1A003D600F /* HeroesData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33E556FB26084C1A003D600F /* HeroesData.xcdatamodeld */; };
 		33F304842603B4E800740570 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F304832603B4E800740570 /* URLS.swift */; };
 		33F304902603BB9D00740570 /* ApiUrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F3048F2603BB9D00740570 /* ApiUrlUtils.swift */; };
 		33F304982603BBF300740570 /* API_KEYS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F304972603BBF300740570 /* API_KEYS.swift */; };
@@ -68,6 +69,7 @@
 		33E42CCC2605664B000FDC95 /* SearchHeroesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeroesTableViewController.swift; sourceTree = "<group>"; };
 		33E42CE92605A17E000FDC95 /* SearchHeroesTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeroesTableViewCellController.swift; sourceTree = "<group>"; };
 		33E42CF92605CEE6000FDC95 /* DetailsHeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHeroesViewController.swift; sourceTree = "<group>"; };
+		33E556FC26084C1A003D600F /* HeroesData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HeroesData.xcdatamodel; sourceTree = "<group>"; };
 		33F304832603B4E800740570 /* URLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
 		33F3048F2603BB9D00740570 /* ApiUrlUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrlUtils.swift; sourceTree = "<group>"; };
 		33F304972603BBF300740570 /* API_KEYS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_KEYS.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				33E0AFC52602B32F0042C4B7 /* AppDelegate.swift */,
 				33E0AFC72602B32F0042C4B7 /* SceneDelegate.swift */,
 				33E0AFCE2602B3310042C4B7 /* Assets.xcassets */,
+				33E556FB26084C1A003D600F /* HeroesData.xcdatamodeld */,
 				33E0AFD32602B3310042C4B7 /* Info.plist */,
 			);
 			path = marvel;
@@ -241,7 +244,6 @@
 				757B5D52A551F1E88ADBF14B /* Pods-marvelTests.debug.xcconfig */,
 				A6E552E5449EEFD4AA54C8F6 /* Pods-marvelTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -498,6 +500,7 @@
 				33E0AFC62602B32F0042C4B7 /* AppDelegate.swift in Sources */,
 				33F304982603BBF300740570 /* API_KEYS.swift in Sources */,
 				33E0AFC82602B32F0042C4B7 /* SceneDelegate.swift in Sources */,
+				33E556FD26084C1A003D600F /* HeroesData.xcdatamodeld in Sources */,
 				3339A6E62606952100FFABA9 /* ControllersUtils.swift in Sources */,
 				33F304A02604405A00740570 /* PARAMETERS.swift in Sources */,
 				33F304A62604485700740570 /* ApiUrlHandler.swift in Sources */,
@@ -840,6 +843,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		33E556FB26084C1A003D600F /* HeroesData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				33E556FC26084C1A003D600F /* HeroesData.xcdatamodel */,
+			);
+			currentVersion = 33E556FC26084C1A003D600F /* HeroesData.xcdatamodel */;
+			path = HeroesData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 33E0AFBA2602B32F0042C4B7 /* Project object */;
 }

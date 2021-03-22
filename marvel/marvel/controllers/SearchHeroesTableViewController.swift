@@ -10,8 +10,17 @@ import UIKit
 class SearchHeroesTableViewController: UITableViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
+    
     @IBAction func searchTextFieldChanged(_ sender: UITextField) {
         waitUserStopsTypeToRequest(delay: 0.4)
+    }
+    
+    @IBAction func buttonFavoriteClick(_ sender: UIButton) {
+        let buttonPosition = sender.convert(CGPoint(), to:tableView)
+        let indexPath = tableView.indexPathForRow(at:buttonPosition)
+        let hero = self.heroes[indexPath?.row ?? 0]
+//        let image = UIImage(named: "star") as UIImage?
+//        favIco.setBackgroundImage(image, for: .normal)
     }
     
     private var heroes: [HeroModel] = []
@@ -35,7 +44,7 @@ class SearchHeroesTableViewController: UITableViewController {
             self.totalHeroes = responseTotal
             
             DispatchQueue.main.async {
-                ControllersUtils().loaderElement(indicator: self.indicator, view: self.view, show: false)
+                self.view.loaderElement(indicator: self.indicator, show: false)
                 self.tableView.reloadData()
             }
             self.isLoadingHeroes = false
@@ -43,7 +52,7 @@ class SearchHeroesTableViewController: UITableViewController {
     }
     
     private func cleanHeroes(){
-        ControllersUtils().loaderElement(indicator: self.indicator, view: self.view, show: true)
+        self.view.loaderElement(indicator: indicator, show: true)
         
         self.heroes = []
         ApiUrlUtils().resetPageCount()
@@ -74,7 +83,8 @@ class SearchHeroesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ControllersUtils().loaderElement(indicator: self.indicator, view: self.view, show: true)
+        self.view.loaderElement(indicator: indicator, show: true)
+        //ControllersUtils().loaderElement(indicator: self.indicator, view: self.view, show: true)
         callRequestResolver()
     }
 
