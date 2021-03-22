@@ -7,10 +7,7 @@
 
 import Foundation
 import UIKit
-
-class ControllersUtils {
-    
-}
+import CoreData
 
 extension UIView {
     public func loaderElement(indicator: UIActivityIndicatorView, show start: Bool){
@@ -24,6 +21,12 @@ extension UIView {
             indicator.stopAnimating()
             indicator.hidesWhenStopped = true
         }
-        
+    }
+}
+
+extension UIViewController {
+    var coreDataContext: NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
     }
 }

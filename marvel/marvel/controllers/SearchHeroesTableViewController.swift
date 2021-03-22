@@ -8,7 +8,14 @@
 import UIKit
 
 class SearchHeroesTableViewController: UITableViewController {
-
+    
+    var heroData: HeroesData!
+    private var heroes: [HeroModel] = []
+    private var isLoadingHeroes: Bool = false
+    private var totalHeroes: Int = 0
+    private var indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+    private var alertLabel = UILabel()
+    
     @IBOutlet weak var searchTextField: UITextField!
     
     @IBAction func searchTextFieldChanged(_ sender: UITextField) {
@@ -19,33 +26,58 @@ class SearchHeroesTableViewController: UITableViewController {
         let buttonPosition = sender.convert(CGPoint(), to:tableView)
         let indexPath = tableView.indexPathForRow(at:buttonPosition)
         let hero = self.heroes[indexPath?.row ?? 0]
+        CoreDataHandler.shared.insertHero(hero: hero)
 //        let image = UIImage(named: "star") as UIImage?
 //        favIco.setBackgroundImage(image, for: .normal)
     }
     
-    private var heroes: [HeroModel] = []
-    private var isLoadingHeroes: Bool = false
-    private var totalHeroes: Int = 0
-    private var indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.view.endEditing(true)
         
-        let details = segue.destination as! DetailsHeroesViewController
-        let hero = heroes[tableView.indexPathForSelectedRow?.row ?? 0]
-        details.hero = hero
+        if let details = segue.destination as? SearchDetailsHeroesViewController{
+            let hero = heroes[tableView.indexPathForSelectedRow?.row ?? 0]
+            details.hero = hero
+        }
     }
     
     private func getHeroes(httpRequest: HttpRequestApiService){
         self.isLoadingHeroes = true
-        httpRequest.getHeroes(completion: { (responseHeroes, responseTotal) in
+        httpRequest.getHeroes(completion: { (responseData) in
             
-            self.heroes += responseHeroes
-            self.totalHeroes = responseTotal
+            self.heroes += responseData.results
+            self.totalHeroes = responseData.total
+            
+            if self.totalHeroes == 0{
+                DispatchQueue.main.async {
+                    self.alertLabel.text = "Hero not found."
+                    self.alertLabel.textAlignment = .center
+                }
+            }
             
             DispatchQueue.main.async {
                 self.view.loaderElement(indicator: self.indicator, show: false)
                 self.tableView.reloadData()
+            }
+            self.isLoadingHeroes = false
+        }, onError: { (responseError) in
+            switch responseError {
+                case .taskError:
+                    DispatchQueue.main.async {
+                        self.alertLabel.text = "Request not completed. Check your internet."
+                    }
+                    break
+                case .errorResponseCode:
+                    DispatchQueue.main.async {
+                        self.alertLabel.text = "Request not completed. Check your auth keys."
+                    }
+                    break
+                case .errorData:
+                    print("data parse error")
+                    break
+            }
+            DispatchQueue.main.async {
+                self.alertLabel.textAlignment = .center
+                self.view.loaderElement(indicator: self.indicator, show: false)
             }
             self.isLoadingHeroes = false
         })
@@ -56,6 +88,8 @@ class SearchHeroesTableViewController: UITableViewController {
         
         self.heroes = []
         ApiUrlUtils().resetPageCount()
+        
+        self.alertLabel.text = ""
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -84,17 +118,17 @@ class SearchHeroesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.loaderElement(indicator: indicator, show: true)
-        //ControllersUtils().loaderElement(indicator: self.indicator, view: self.view, show: true)
         callRequestResolver()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.backgroundView = heroes.count == 0 ? alertLabel : nil
         return heroes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "heroCell", for: indexPath) as! SearchHeroesTableViewCellController
+        let cell = tableView.dequeueReusableCell(withIdentifier: "heroCell", for: indexPath) as! SearchCellHeroesTableViewController
         let hero = heroes[indexPath.row]
         
         cell.renderHero(with: hero)

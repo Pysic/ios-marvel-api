@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3339A6E62606952100FFABA9 /* ControllersUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339A6E52606952100FFABA9 /* ControllersUtils.swift */; };
+		3339A6E62606952100FFABA9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339A6E52606952100FFABA9 /* Extensions.swift */; };
+		33632E282608E28B00EEE35C /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33632E272608E28B00EEE35C /* CoreDataHandler.swift */; };
+		33632E2D260918BB00EEE35C /* CoreDataHeroesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33632E2C260918BB00EEE35C /* CoreDataHeroesTableViewController.swift */; };
+		33632E3226091A1A00EEE35C /* CoreDataDetailsHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33632E3126091A1A00EEE35C /* CoreDataDetailsHeroesViewController.swift */; };
+		33632E3A260927E200EEE35C /* CoreDataCellHeroesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33632E39260927E200EEE35C /* CoreDataCellHeroesTableViewController.swift */; };
 		33DB28EB260389C800ED93FD /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB28EA260389C800ED93FD /* ApiModel.swift */; };
 		33E0AFC62602B32F0042C4B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0AFC52602B32F0042C4B7 /* AppDelegate.swift */; };
 		33E0AFC82602B32F0042C4B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0AFC72602B32F0042C4B7 /* SceneDelegate.swift */; };
@@ -18,8 +22,8 @@
 		33E0AFE82602B3310042C4B7 /* marvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0AFE72602B3310042C4B7 /* marvelUITests.swift */; };
 		33E0AFFC2602E9B20042C4B7 /* HttpRequestApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0AFFB2602E9B20042C4B7 /* HttpRequestApiService.swift */; };
 		33E42CCD2605664B000FDC95 /* SearchHeroesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E42CCC2605664B000FDC95 /* SearchHeroesTableViewController.swift */; };
-		33E42CEA2605A17E000FDC95 /* SearchHeroesTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E42CE92605A17E000FDC95 /* SearchHeroesTableViewCellController.swift */; };
-		33E42CFA2605CEE6000FDC95 /* DetailsHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E42CF92605CEE6000FDC95 /* DetailsHeroesViewController.swift */; };
+		33E42CEA2605A17E000FDC95 /* SearchCellHeroesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E42CE92605A17E000FDC95 /* SearchCellHeroesTableViewController.swift */; };
+		33E42CFA2605CEE6000FDC95 /* SearchDetailsHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E42CF92605CEE6000FDC95 /* SearchDetailsHeroesViewController.swift */; };
 		33E556FD26084C1A003D600F /* HeroesData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33E556FB26084C1A003D600F /* HeroesData.xcdatamodeld */; };
 		33F304842603B4E800740570 /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F304832603B4E800740570 /* URLS.swift */; };
 		33F304902603BB9D00740570 /* ApiUrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F3048F2603BB9D00740570 /* ApiUrlUtils.swift */; };
@@ -50,7 +54,11 @@
 
 /* Begin PBXFileReference section */
 		14D0AC36C30EEC73DE7A5895 /* Pods-marvel-marvelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-marvel-marvelUITests.debug.xcconfig"; path = "Target Support Files/Pods-marvel-marvelUITests/Pods-marvel-marvelUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		3339A6E52606952100FFABA9 /* ControllersUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersUtils.swift; sourceTree = "<group>"; };
+		3339A6E52606952100FFABA9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		33632E272608E28B00EEE35C /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
+		33632E2C260918BB00EEE35C /* CoreDataHeroesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHeroesTableViewController.swift; sourceTree = "<group>"; };
+		33632E3126091A1A00EEE35C /* CoreDataDetailsHeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDetailsHeroesViewController.swift; sourceTree = "<group>"; };
+		33632E39260927E200EEE35C /* CoreDataCellHeroesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCellHeroesTableViewController.swift; sourceTree = "<group>"; };
 		33DB28EA260389C800ED93FD /* ApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModel.swift; sourceTree = "<group>"; };
 		33E0AFC22602B32F0042C4B7 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E0AFC52602B32F0042C4B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,8 +75,8 @@
 		33E0AFE92602B3310042C4B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33E0AFFB2602E9B20042C4B7 /* HttpRequestApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestApiService.swift; sourceTree = "<group>"; };
 		33E42CCC2605664B000FDC95 /* SearchHeroesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeroesTableViewController.swift; sourceTree = "<group>"; };
-		33E42CE92605A17E000FDC95 /* SearchHeroesTableViewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeroesTableViewCellController.swift; sourceTree = "<group>"; };
-		33E42CF92605CEE6000FDC95 /* DetailsHeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHeroesViewController.swift; sourceTree = "<group>"; };
+		33E42CE92605A17E000FDC95 /* SearchCellHeroesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellHeroesTableViewController.swift; sourceTree = "<group>"; };
+		33E42CF92605CEE6000FDC95 /* SearchDetailsHeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailsHeroesViewController.swift; sourceTree = "<group>"; };
 		33E556FC26084C1A003D600F /* HeroesData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HeroesData.xcdatamodel; sourceTree = "<group>"; };
 		33F304832603B4E800740570 /* URLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
 		33F3048F2603BB9D00740570 /* ApiUrlUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrlUtils.swift; sourceTree = "<group>"; };
@@ -202,8 +210,11 @@
 			isa = PBXGroup;
 			children = (
 				33E42CCC2605664B000FDC95 /* SearchHeroesTableViewController.swift */,
-				33E42CE92605A17E000FDC95 /* SearchHeroesTableViewCellController.swift */,
-				33E42CF92605CEE6000FDC95 /* DetailsHeroesViewController.swift */,
+				33E42CE92605A17E000FDC95 /* SearchCellHeroesTableViewController.swift */,
+				33E42CF92605CEE6000FDC95 /* SearchDetailsHeroesViewController.swift */,
+				33632E2C260918BB00EEE35C /* CoreDataHeroesTableViewController.swift */,
+				33632E3126091A1A00EEE35C /* CoreDataDetailsHeroesViewController.swift */,
+				33632E39260927E200EEE35C /* CoreDataCellHeroesTableViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -221,7 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				33F3048F2603BB9D00740570 /* ApiUrlUtils.swift */,
-				3339A6E52606952100FFABA9 /* ControllersUtils.swift */,
+				3339A6E52606952100FFABA9 /* Extensions.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -230,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				33F304A52604485700740570 /* ApiUrlHandler.swift */,
+				33632E272608E28B00EEE35C /* CoreDataHandler.swift */,
 			);
 			path = handlers;
 			sourceTree = "<group>";
@@ -496,19 +508,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				33E0AFFC2602E9B20042C4B7 /* HttpRequestApiService.swift in Sources */,
-				33E42CFA2605CEE6000FDC95 /* DetailsHeroesViewController.swift in Sources */,
+				33632E282608E28B00EEE35C /* CoreDataHandler.swift in Sources */,
+				33632E3226091A1A00EEE35C /* CoreDataDetailsHeroesViewController.swift in Sources */,
+				33632E2D260918BB00EEE35C /* CoreDataHeroesTableViewController.swift in Sources */,
+				33E42CFA2605CEE6000FDC95 /* SearchDetailsHeroesViewController.swift in Sources */,
 				33E0AFC62602B32F0042C4B7 /* AppDelegate.swift in Sources */,
+				33632E3A260927E200EEE35C /* CoreDataCellHeroesTableViewController.swift in Sources */,
 				33F304982603BBF300740570 /* API_KEYS.swift in Sources */,
 				33E0AFC82602B32F0042C4B7 /* SceneDelegate.swift in Sources */,
 				33E556FD26084C1A003D600F /* HeroesData.xcdatamodeld in Sources */,
-				3339A6E62606952100FFABA9 /* ControllersUtils.swift in Sources */,
+				3339A6E62606952100FFABA9 /* Extensions.swift in Sources */,
 				33F304A02604405A00740570 /* PARAMETERS.swift in Sources */,
 				33F304A62604485700740570 /* ApiUrlHandler.swift in Sources */,
 				33DB28EB260389C800ED93FD /* ApiModel.swift in Sources */,
 				33F304842603B4E800740570 /* URLS.swift in Sources */,
 				33F304902603BB9D00740570 /* ApiUrlUtils.swift in Sources */,
 				33E42CCD2605664B000FDC95 /* SearchHeroesTableViewController.swift in Sources */,
-				33E42CEA2605A17E000FDC95 /* SearchHeroesTableViewCellController.swift in Sources */,
+				33E42CEA2605A17E000FDC95 /* SearchCellHeroesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

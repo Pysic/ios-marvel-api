@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum HttpError {
+    case errorData
+    case errorResponseCode
+    case taskError
+}
+
 class HttpRequestApiService{
     private static let session = URLSession.shared
     private var url: String
@@ -19,7 +25,7 @@ class HttpRequestApiService{
         self.url = ApiUrlHandler(heroName: name).getPath()
     }
     
-    func getHeroes(completion: @escaping ([HeroModel], Int) -> Void){
+    func getHeroes(completion: @escaping (DataModel) -> Void, onError: @escaping (HttpError) -> Void){
         let urlPath = self.url
         guard let url = URL(string: urlPath) else {return}
         let dataTask = HttpRequestApiService.session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -29,13 +35,15 @@ class HttpRequestApiService{
                     guard let data = data else {return}
                     do {
                         let json = try JSONDecoder().decode(ApiModel.self, from: data)
-                        completion(json.data.results, json.data.total)
+                        completion(json.data)
                     } catch {
-                        print("error")
+                        onError(.errorData)
                     }
+                } else {
+                    onError(.errorResponseCode)
                 }
             } else {
-                print(error!)
+                onError(.taskError)
             }
         }
         dataTask.resume()

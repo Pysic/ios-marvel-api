@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchHeroesTableViewCellController: UITableViewCell {
+class SearchCellHeroesTableViewController: UITableViewCell {
 
     @IBOutlet weak var labelNameHero: UILabel!
     @IBOutlet weak var imageHero: UIImageView!

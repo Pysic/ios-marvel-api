@@ -1,26 +1,26 @@
 //
-//  DetailsHeroesViewController.swift
+//  CoreDataDetailsViewController.swift
 //  marvel
 //
-//  Created by Pietro Rischi Nunes (E) on 20/03/21.
+//  Created by Pietro Rischi Nunes (E) on 22/03/21.
 //
 
 import UIKit
-import Kingfisher
 
-class DetailsHeroesViewController: UIViewController {
+class CoreDataDetailsHeroesViewController: UIViewController {
 
     @IBOutlet weak var nameDescriptionDetail: UITextView!
     @IBOutlet weak var nameHeroDetail: UILabel!
     @IBOutlet weak var imageHeroDetail: UIImageView!
-    var hero: HeroModel!
+    var hero: HeroesData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         nameHeroDetail.text = hero.name
-        nameDescriptionDetail.text = hero.description == "" ? "\(hero.name) don't have a description." : hero.description
-        imageHeroDetail.kf.setImage(with: URL(string: self.hero.thumbnail.url))
+        nameDescriptionDetail.text = hero.information == "" ? "\(hero.name ?? "This hero ") don't have a description." : hero.information
+//        imageHeroDetail.kf.setImage(with: URL(string: self.hero.thumbnail.url))
+        // Do any additional setup after loading the view.
     }
     
 
