@@ -16,9 +16,10 @@ class CoreDataHandler: UIViewController {
     static let shared = CoreDataHandler()
     
     func insertHero(hero: HeroModel){
-        if(heroData == nil){
-            heroData = HeroesData(context: coreDataContext)
-        }
+//        if(heroData == nil){
+//            heroData = HeroesData(context: coreDataContext)
+//        }
+        heroData = HeroesData(context: coreDataContext)
         heroData.id = Int64(hero.id)
         heroData.name = hero.name
         heroData.information = hero.description

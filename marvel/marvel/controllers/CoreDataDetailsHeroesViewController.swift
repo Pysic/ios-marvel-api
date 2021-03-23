@@ -12,14 +12,22 @@ class CoreDataDetailsHeroesViewController: UIViewController {
     @IBOutlet weak var nameDescriptionDetail: UITextView!
     @IBOutlet weak var nameHeroDetail: UILabel!
     @IBOutlet weak var imageHeroDetail: UIImageView!
+
+    @IBAction func buttonUnfavoriteDetailClick(_ sender: Any) {
+        CoreDataHandler.shared.deleteHero(index: index ?? 0)
+    }
+    
     var hero: HeroesData!
+    var index: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         nameHeroDetail.text = hero.name
         nameDescriptionDetail.text = hero.information == "" ? "\(hero.name ?? "This hero ") don't have a description." : hero.information
-//        imageHeroDetail.kf.setImage(with: URL(string: self.hero.thumbnail.url))
+        if let image = hero.image as? UIImage {
+            imageHeroDetail.image = image
+        }
         // Do any additional setup after loading the view.
     }
     

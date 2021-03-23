@@ -13,6 +13,10 @@ class SearchDetailsHeroesViewController: UIViewController {
     @IBOutlet weak var nameDescriptionDetail: UITextView!
     @IBOutlet weak var nameHeroDetail: UILabel!
     @IBOutlet weak var imageHeroDetail: UIImageView!
+    
+    @IBAction func buttonFavoriteDetailClick(_ sender: Any) {
+        CoreDataHandler.shared.insertHero(hero: hero)
+    }
     var hero: HeroModel!
     
     override func viewDidLoad() {

@@ -191,6 +191,9 @@
                                         <state key="normal">
                                             <imageReference key="backgroundImage" image="star" catalog="system" renderingMode="original"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonFavoriteDetailClick:" destination="zp4-94-pia" eventType="touchUpInside" id="loY-Ib-4Ii"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -291,10 +294,10 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                                     <state key="normal">
-                                                        <imageReference key="backgroundImage" image="star" catalog="system" renderingMode="original"/>
+                                                        <imageReference key="backgroundImage" image="star.fill" catalog="system" renderingMode="original"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="buttonFavoriteClick:" destination="wKk-ON-RSw" eventType="touchUpInside" id="hLd-oX-YGm"/>
+                                                        <action selector="buttonFavoriteClick:" destination="wKk-ON-RSw" eventType="touchUpInside" id="FTz-FW-frn"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -379,8 +382,11 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                         <state key="normal">
-                                            <imageReference key="backgroundImage" image="star" catalog="system" renderingMode="original"/>
+                                            <imageReference key="backgroundImage" image="star.fill" catalog="system" renderingMode="original"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonUnfavoriteDetailClick:" destination="2Hc-uK-aEl" eventType="touchUpInside" id="YG5-gq-LBy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
@@ -429,6 +435,7 @@
         <image name="52602f21f29ec" width="850" height="850"/>
         <image name="marvel-logo-header" width="1400" height="700"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -9,24 +9,44 @@ import UIKit
 
 class CoreDataHeroesTableViewController: UITableViewController {
 
-    var heroes: [HeroesData] = CoreDataHandler.shared.heroes
+    private var heroes: [HeroesData] = CoreDataHandler.shared.heroes
+    private var alertLabel = UILabel()
+    
+    @IBAction func buttonFavoriteClick(_ sender: UIButton) {
+        let buttonPosition = sender.convert(CGPoint(), to:tableView)
+        let indexPath = tableView.indexPathForRow(at:buttonPosition)
+        CoreDataHandler.shared.deleteHero(index: indexPath?.row ?? 0)
+        loadHeroes()
+    }
     
     private func loadHeroes(){
         CoreDataHandler.shared.loadHeroes()
         heroes = CoreDataHandler.shared.heroes
+        print("caiu")
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let details = segue.destination as? CoreDataDetailsHeroesViewController {
             let hero = heroes[tableView.indexPathForSelectedRow?.row ?? 0]
             details.hero = hero
+            details.index = tableView.indexPathForSelectedRow?.row
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadHeroes()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadHeroes()
-    
+        self.alertLabel.text = "You don't have saved heroes."
+        self.alertLabel.textAlignment = .center
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -38,6 +58,7 @@ class CoreDataHeroesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        tableView.backgroundView = heroes.count == 0 ? alertLabel : nil
         return heroes.count
     }
 
