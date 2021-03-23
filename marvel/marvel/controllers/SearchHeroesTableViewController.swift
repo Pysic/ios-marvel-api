@@ -26,9 +26,9 @@ class SearchHeroesTableViewController: UITableViewController {
         let buttonPosition = sender.convert(CGPoint(), to:tableView)
         let indexPath = tableView.indexPathForRow(at:buttonPosition)
         let hero = self.heroes[indexPath?.row ?? 0]
-        CoreDataHandler.shared.insertHero(hero: hero)
-//        let image = UIImage(named: "star") as UIImage?
-//        favIco.setBackgroundImage(image, for: .normal)
+        
+        hero.favorite ? CoreDataHandler.shared.deleteByHero(hero: hero) : CoreDataHandler.shared.insertHero(hero: hero)
+        sender.renderFavoriteButton(hero: hero)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,7 +49,7 @@ class SearchHeroesTableViewController: UITableViewController {
             
             if self.totalHeroes == 0{
                 DispatchQueue.main.async {
-                    self.alertLabel.text = "Hero not found."
+                    self.alertLabel.text = ALERTS.NO_HERO_FOUND.rawValue
                     self.alertLabel.textAlignment = .center
                 }
             }
@@ -63,12 +63,12 @@ class SearchHeroesTableViewController: UITableViewController {
             switch responseError {
                 case .taskError:
                     DispatchQueue.main.async {
-                        self.alertLabel.text = "Request not completed. Check your internet."
+                        self.alertLabel.text = ALERTS.NO_INTERNET.rawValue
                     }
                     break
                 case .errorResponseCode:
                     DispatchQueue.main.async {
-                        self.alertLabel.text = "Request not completed. Check your auth keys."
+                        self.alertLabel.text = ALERTS.NO_AUTH.rawValue
                     }
                     break
                 case .errorData:
@@ -113,6 +113,14 @@ class SearchHeroesTableViewController: UITableViewController {
         guard let textValue = searchTextField.text else {return}
         let request = textValue == "" ? HttpRequestApiService() : HttpRequestApiService(withHeroName: textValue)
         getHeroes(httpRequest: request)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {

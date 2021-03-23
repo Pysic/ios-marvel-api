@@ -16,9 +16,6 @@ class CoreDataHandler: UIViewController {
     static let shared = CoreDataHandler()
     
     func insertHero(hero: HeroModel){
-//        if(heroData == nil){
-//            heroData = HeroesData(context: coreDataContext)
-//        }
         heroData = HeroesData(context: coreDataContext)
         heroData.id = Int64(hero.id)
         heroData.name = hero.name
@@ -36,7 +33,23 @@ class CoreDataHandler: UIViewController {
         }
     }
     
-    func deleteHero(index: Int) {
+    func deleteByHero(hero: HeroModel) {
+        let fetchRequest: NSFetchRequest<HeroesData> = HeroesData.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id = %d", hero.id)
+
+        var results: [HeroesData] = []
+
+        do {
+            results = try coreDataContext.fetch(fetchRequest)
+            coreDataContext.delete(results[0])
+            try coreDataContext.save()
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func deleteByIndex(index: Int) {
         let hero = heroes[index]
         coreDataContext.delete(hero)
         
@@ -56,5 +69,21 @@ class CoreDataHandler: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func checkSaved(id: Int) -> Bool{
+        let fetchRequest: NSFetchRequest<HeroesData> = HeroesData.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id = %d", id)
+
+        var results: [HeroesData] = []
+
+        do {
+            results = try coreDataContext.fetch(fetchRequest)
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+
+        return results.count > 0
     }
 }

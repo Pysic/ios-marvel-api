@@ -12,6 +12,7 @@
 		33632E2D260918BB00EEE35C /* CoreDataHeroesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33632E2C260918BB00EEE35C /* CoreDataHeroesTableViewController.swift */; };
 		33632E3226091A1A00EEE35C /* CoreDataDetailsHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33632E3126091A1A00EEE35C /* CoreDataDetailsHeroesViewController.swift */; };
 		33632E3A260927E200EEE35C /* CoreDataCellHeroesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33632E39260927E200EEE35C /* CoreDataCellHeroesTableViewController.swift */; };
+		3397FED1260A318E004744A2 /* ALERTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3397FED0260A318E004744A2 /* ALERTS.swift */; };
 		33DB28EB260389C800ED93FD /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB28EA260389C800ED93FD /* ApiModel.swift */; };
 		33E0AFC62602B32F0042C4B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0AFC52602B32F0042C4B7 /* AppDelegate.swift */; };
 		33E0AFC82602B32F0042C4B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0AFC72602B32F0042C4B7 /* SceneDelegate.swift */; };
@@ -59,6 +60,7 @@
 		33632E2C260918BB00EEE35C /* CoreDataHeroesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHeroesTableViewController.swift; sourceTree = "<group>"; };
 		33632E3126091A1A00EEE35C /* CoreDataDetailsHeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDetailsHeroesViewController.swift; sourceTree = "<group>"; };
 		33632E39260927E200EEE35C /* CoreDataCellHeroesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCellHeroesTableViewController.swift; sourceTree = "<group>"; };
+		3397FED0260A318E004744A2 /* ALERTS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALERTS.swift; sourceTree = "<group>"; };
 		33DB28EA260389C800ED93FD /* ApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModel.swift; sourceTree = "<group>"; };
 		33E0AFC22602B32F0042C4B7 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E0AFC52602B32F0042C4B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				33F304832603B4E800740570 /* URLS.swift */,
 				33F304972603BBF300740570 /* API_KEYS.swift */,
 				33F3049F2604405A00740570 /* PARAMETERS.swift */,
+				3397FED0260A318E004744A2 /* ALERTS.swift */,
 			);
 			path = enums;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				33E0AFFC2602E9B20042C4B7 /* HttpRequestApiService.swift in Sources */,
 				33632E282608E28B00EEE35C /* CoreDataHandler.swift in Sources */,
 				33632E3226091A1A00EEE35C /* CoreDataDetailsHeroesViewController.swift in Sources */,
+				3397FED1260A318E004744A2 /* ALERTS.swift in Sources */,
 				33632E2D260918BB00EEE35C /* CoreDataHeroesTableViewController.swift in Sources */,
 				33E42CFA2605CEE6000FDC95 /* SearchDetailsHeroesViewController.swift in Sources */,
 				33E0AFC62602B32F0042C4B7 /* AppDelegate.swift in Sources */,

@@ -13,9 +13,11 @@ class SearchDetailsHeroesViewController: UIViewController {
     @IBOutlet weak var nameDescriptionDetail: UITextView!
     @IBOutlet weak var nameHeroDetail: UILabel!
     @IBOutlet weak var imageHeroDetail: UIImageView!
+    @IBOutlet weak var buttonFavoriteDetail: UIButton!
     
-    @IBAction func buttonFavoriteDetailClick(_ sender: Any) {
-        CoreDataHandler.shared.insertHero(hero: hero)
+    @IBAction func buttonFavoriteDetailClick(_ sender: UIButton) {
+        hero.favorite ? CoreDataHandler.shared.deleteByHero(hero: hero) : CoreDataHandler.shared.insertHero(hero: hero)
+        sender.renderFavoriteButton(hero: hero)
     }
     var hero: HeroModel!
     
@@ -25,6 +27,7 @@ class SearchDetailsHeroesViewController: UIViewController {
         nameHeroDetail.text = hero.name
         nameDescriptionDetail.text = hero.description == "" ? "\(hero.name) don't have a description." : hero.description
         imageHeroDetail.kf.setImage(with: URL(string: self.hero.thumbnail.url))
+        buttonFavoriteDetail.renderFavoriteButton(hero: hero)
     }
     
 

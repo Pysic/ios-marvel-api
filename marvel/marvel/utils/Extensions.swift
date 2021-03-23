@@ -29,4 +29,26 @@ extension UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
+    
+    func alertModal(title: String, message: String, onOk: @escaping () -> Void, onCancel: @escaping () -> Void){
+        let refreshAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                onOk()
+        }))
+
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                onCancel()
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+}
+
+extension UIButton {
+    func renderFavoriteButton (hero: HeroModel) {
+        let favoriteImage = hero.favorite ? "star.fill" : "star"
+        let image = UIImage(systemName: favoriteImage) as UIImage?
+        self.setBackgroundImage(image, for: .normal)
+    }
 }

@@ -14,7 +14,16 @@ class CoreDataDetailsHeroesViewController: UIViewController {
     @IBOutlet weak var imageHeroDetail: UIImageView!
 
     @IBAction func buttonUnfavoriteDetailClick(_ sender: Any) {
-        CoreDataHandler.shared.deleteHero(index: index ?? 0)
+        self.alertHeroDelete(index: index ?? 0)
+    }
+    
+    private func alertHeroDelete(index: Int){
+        self.alertModal(title: "Remove Hero", message: "The hero will be removed from favorites.", onOk: {
+            CoreDataHandler.shared.deleteByIndex(index: index)
+            self.navigationController?.popViewController(animated: true)
+        }, onCancel: {
+            return
+        })
     }
     
     var hero: HeroesData!

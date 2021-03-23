@@ -11,6 +11,7 @@ class SearchCellHeroesTableViewController: UITableViewCell {
 
     @IBOutlet weak var labelNameHero: UILabel!
     @IBOutlet weak var imageHero: UIImageView!
+    @IBOutlet weak var buttonFavorite: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,7 @@ class SearchCellHeroesTableViewController: UITableViewCell {
         if(labelNameHero !== nil && imageHero !== nil){
             labelNameHero.text = hero.name
             imageHero.kf.setImage(with: URL(string: hero.thumbnail.url))
+            buttonFavorite.renderFavoriteButton(hero: hero)
         }
     }
 }

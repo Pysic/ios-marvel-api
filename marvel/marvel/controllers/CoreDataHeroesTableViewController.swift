@@ -15,14 +15,22 @@ class CoreDataHeroesTableViewController: UITableViewController {
     @IBAction func buttonFavoriteClick(_ sender: UIButton) {
         let buttonPosition = sender.convert(CGPoint(), to:tableView)
         let indexPath = tableView.indexPathForRow(at:buttonPosition)
-        CoreDataHandler.shared.deleteHero(index: indexPath?.row ?? 0)
-        loadHeroes()
+        self.alertHeroDelete(index: indexPath?.row ?? 0)
+    }
+    
+    private func alertHeroDelete(index: Int){
+        self.alertModal(title: "Remove Hero", message: "The hero will be removed from favorites.", onOk: {
+            CoreDataHandler.shared.deleteByIndex(index: index)
+            self.loadHeroes()
+        }, onCancel: {
+            return
+        })
     }
     
     private func loadHeroes(){
         CoreDataHandler.shared.loadHeroes()
         heroes = CoreDataHandler.shared.heroes
-        print("caiu")
+        
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -39,19 +47,9 @@ class CoreDataHeroesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         loadHeroes()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loadHeroes()
-        self.alertLabel.text = "You don't have saved heroes."
+        
+        self.alertLabel.text = ALERTS.NO_HERO_SAVED.rawValue
         self.alertLabel.textAlignment = .center
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source

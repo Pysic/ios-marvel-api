@@ -21,6 +21,9 @@ struct HeroModel : Codable{
     var name: String
     var description: String
     var thumbnail: ThumbnailModel
+    var favorite: Bool {
+        CoreDataHandler().checkSaved(id: id)
+    }
 }
 
 struct ThumbnailModel : Codable{

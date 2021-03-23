@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -86,12 +86,15 @@
                                                         <constraint firstAttribute="width" constant="40" id="L88-Km-fw0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                                    <state key="normal">
-                                                        <imageReference key="backgroundImage" image="star" catalog="system" renderingMode="original"/>
-                                                    </state>
+                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <state key="normal" backgroundImage="star" catalog="system"/>
                                                     <connections>
                                                         <action selector="buttonFavoriteClick:" destination="wd5-fo-gQj" eventType="touchUpInside" id="pI4-GM-dMQ"/>
                                                     </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qo4-rV-PqX">
+                                                    <rect key="frame" x="264" y="-3" width="46" height="78"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -119,6 +122,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <connections>
+                                    <outlet property="buttonFavorite" destination="HQk-ge-UWT" id="5vc-Aj-mHv"/>
                                     <outlet property="imageHero" destination="KyG-eE-477" id="p2b-of-7N7"/>
                                     <outlet property="labelNameHero" destination="vOe-sL-kWZ" id="2pF-Lp-WHY"/>
                                     <segue destination="zp4-94-pia" kind="show" id="AMk-3q-bE0"/>
@@ -188,9 +192,7 @@
                                             <constraint firstAttribute="width" constant="40" id="unS-Pt-hJM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                        <state key="normal">
-                                            <imageReference key="backgroundImage" image="star" catalog="system" renderingMode="original"/>
-                                        </state>
+                                        <state key="normal" backgroundImage="star" catalog="system"/>
                                         <connections>
                                             <action selector="buttonFavoriteDetailClick:" destination="zp4-94-pia" eventType="touchUpInside" id="loY-Ib-4Ii"/>
                                         </connections>
@@ -228,6 +230,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="AHk-Pz-pIX"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonFavoriteDetail" destination="eyu-of-ymR" id="HAI-Cs-Ju6"/>
                         <outlet property="imageHeroDetail" destination="3gs-tv-Zwa" id="0Om-8t-vUK"/>
                         <outlet property="nameDescriptionDetail" destination="MER-iT-aYE" id="DjR-sF-DDs"/>
                         <outlet property="nameHeroDetail" destination="qZE-oi-LV9" id="dIC-LS-6xK"/>
@@ -293,9 +296,7 @@
                                                         <constraint firstAttribute="height" constant="35" id="sB4-ry-6N7"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                                    <state key="normal">
-                                                        <imageReference key="backgroundImage" image="star.fill" catalog="system" renderingMode="original"/>
-                                                    </state>
+                                                    <state key="normal" backgroundImage="star.fill" catalog="system"/>
                                                     <connections>
                                                         <action selector="buttonFavoriteClick:" destination="wKk-ON-RSw" eventType="touchUpInside" id="FTz-FW-frn"/>
                                                     </connections>
@@ -381,9 +382,7 @@
                                             <constraint firstAttribute="height" constant="35" id="kqj-e7-ZBq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
-                                        <state key="normal">
-                                            <imageReference key="backgroundImage" image="star.fill" catalog="system" renderingMode="original"/>
-                                        </state>
+                                        <state key="normal" backgroundImage="star.fill" catalog="system"/>
                                         <connections>
                                             <action selector="buttonUnfavoriteDetailClick:" destination="2Hc-uK-aEl" eventType="touchUpInside" id="YG5-gq-LBy"/>
                                         </connections>
@@ -436,6 +435,9 @@
         <image name="marvel-logo-header" width="1400" height="700"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
