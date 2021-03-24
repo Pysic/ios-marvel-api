@@ -1,3 +1,6 @@
+# API da Marvel
+
+
 Funcionalidades:
 
   -Apresenta uma lista com todos os personagens disponíveis em scroll infinito e com a opção de busca por nome;
