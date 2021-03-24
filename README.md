@@ -15,3 +15,9 @@ Funcionalidades:
 Dependências:
 
   -Kingfisher: Para download e cache assíncrono de imagens.
+  
+ 
+ Para executar:
+  
+    -Fazer clone do repositorio;
+    -Instalar os pods.
