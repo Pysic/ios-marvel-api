@@ -6,4 +6,5 @@ Funcionalidades:
   -Persiste no dispositivo os personagens favoritos para que possam ser acessados em modo offline;
   
 Dependências:
+
   -Kingfisher: Para download e cache assíncrono de imagens.
