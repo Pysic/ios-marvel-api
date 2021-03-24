@@ -19,5 +19,5 @@ Dependências:
  
  Para executar:
   
-    -Fazer clone do repositorio;
-    -Instalar os pods.
+  -Fazer clone do repositorio;
+  -Instalar os pods.
